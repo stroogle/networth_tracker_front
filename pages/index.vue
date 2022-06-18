@@ -4,7 +4,7 @@
         <CurrencySelector />
         <ItemList title="Assets" :items="assets" />
         <ItemList title="Liabailities" :items="liabilities" />
-        <button :disabled="!downloadReady" class="rounded w-full bg-blue-400 text-white py-2 disabled:bg-gray-300">DOWNLOAD NOW</button>
+        <button :disabled="!downloadReady" class="rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300">DOWNLOAD NOW</button>
     </div>
 </template>
 

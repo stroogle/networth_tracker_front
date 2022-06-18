@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const currency = useCurrency()
+</script>
+
 <template>
     <div class="grid grid-cols-1 gap-y-4">
         <h1 class="text-base font-bold">{{title}}</h1>
@@ -10,10 +14,10 @@
         />
         <div class="grid grid-cols-2 gap-x-4">
             <input class="inputs" v-model="name" type="text" placeholder="Label"/>
-            <input class="inputs" v-model="value" type="number" name="" id="" placeholder="0">
+            <input class="inputs" v-model="value" type="number" name="" id="" :placeholder="`Value (${currency})`">
         </div>
         
-        <button class="w-full py-2 text-white bg-green-400 rounded flex justify-center items-center" @click="addItem">Add {{title}}</button>
+        <button class="w-full py-2 text-white bg-green-400 hover:bg-green-500 rounded flex justify-center items-center" @click="addItem">Add {{title}}</button>
     </div>
 </template>
 
@@ -67,11 +71,7 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-input:invalid {
-    background: red;
-}
-
 .inputs {
-    @apply h-[38px] bg-gray-100 rounded outline-none px-4;
+    @apply h-[38px] bg-gray-100 rounded outline-none px-4 invalid:outline-2 invalid:outline-red-400 focus:outline-2 focus:outline-blue-400;
 }
 </style>
