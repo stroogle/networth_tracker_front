@@ -1,23 +1,24 @@
 <template>
-    <div>
-        <h1>{{title}}</h1>
-        <div v-for="(item, idx) in items" :key="idx" class="flex justify-between">
-            <p @click="removeItem(idx)">x</p>
-            <p>{{item.name}}</p>
-            <p>${{item.value}}</p>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 gap-y-4">
+        <h1 class="text-base font-bold">{{title}}</h1>
+        <Item1 v-for="(item, idx) in items"
+            :key="idx"
+            :itemName="item.name"
+            :itemValue="item.value"
+            :doThis="removeItem"
+            :idx="idx"
+        />
+        <div class="grid grid-cols-2 gap-x-4">
             <input class="inputs" v-model="name" type="text" placeholder="Label"/>
             <input class="inputs" v-model="value" type="number" name="" id="" placeholder="0">
         </div>
         
-        <button class="w-full mt-4 py-2 text-white bg-green-400 rounded flex justify-center items-center" @click="addItem">Add {{title}}</button>
-        <p>Total: ${{total}}</p>
+        <button class="w-full py-2 text-white bg-green-400 rounded flex justify-center items-center" @click="addItem">Add {{title}}</button>
     </div>
 </template>
 
 <script lang="ts">
-import {PropType} from 'vue'
+import Item1 from './Item.vue';
 export default {
     props: {
         items: {
@@ -31,18 +32,17 @@ export default {
     data() {
         return {
             name: "",
-            value: null,
-            total: 0
-        }
+            value: null
+        };
     },
     methods: {
         addItem(): void {
-            if(this.name == "" || this.value < 1)
+            if (this.name == "" || this.value < 1)
                 return;
             this.items.push({
                 name: this.name,
                 value: this.value,
-            })
+            });
             this.name = "";
             this.value = null;
         },
@@ -50,18 +50,7 @@ export default {
             this.items.splice(idx, 1);
         }
     },
-    watch: {
-        items: {
-            handler(val, oldVal){
-                let sum: number = 0;
-                for(let i = 0; i < val.length; i++) {
-                    sum += this.items[i].value;
-                }
-                this.total = sum;
-            },
-            deep: true,
-        }
-    }
+    components: { Item1 }
 }
 </script>
 
