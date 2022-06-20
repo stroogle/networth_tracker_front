@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const {apiBase} = useRuntimeConfig().public
+useHead({
+    title: "Check My Net Worth"
+})
 </script>
 
 <template>
