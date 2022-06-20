@@ -1,10 +1,14 @@
+<script setup lang="ts">
+const {apiBase} = useRuntimeConfig().public
+</script>
+
 <template>
     <div class="grid grid-cols-1 gap-y-4">
         <p class="text-2xl font-bold">CREATE BEAUTIFUL BALANCE SHEETS FREE</p>
         <CurrencySelector />
         <ItemList title="Assets" :items="assets" />
         <ItemList title="Liabailities" :items="liabilities" />
-        <button :disabled="!downloadReady" class="rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300">DOWNLOAD NOW</button>
+        <button @click="downloadPdf" :disabled="!downloadReady" class="rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300">{{downloadMessage}}</button>
     </div>
 </template>
 
@@ -16,7 +20,32 @@ export default {
             liabilities: [],
             assetTotal: 0,
             liabilityTotal: 0,
-            downloadReady: false
+            downloadReady: false,
+            downloadMessage: "GENERATE PDF"
+        }
+    },
+    methods: {
+        async downloadPdf(){
+            this.downloadMessage = "Loading..."
+            const body = {
+                assets: this.assets,
+                liabilities: this.liabilities
+            }
+
+            const data: any = await $fetch(`${this.apiBase}/pdf/create`, {
+                method: 'POST',
+                body
+            })
+            .catch(e => e.data)
+            .finally(() => {
+                this.downloadMessage = "GENERATE PDF"
+            })
+
+            if(data.error)
+                return;
+
+
+            window.open(`${this.apiBase}/pdfs/${data.filename}`, '_blank');
         }
     },
     watch: {
@@ -36,6 +65,9 @@ export default {
             },
             deep: true
         }
+    },
+    beforeMount(){
+        
     }
 }
 </script>

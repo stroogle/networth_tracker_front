@@ -3,7 +3,7 @@ const currency = useCurrency()
 </script>
 
 <template>
-    <div class="grid grid-cols-1 gap-y-4">
+    <form @submit.prevent="addItem" class="grid grid-cols-1 gap-y-4">
         <h1 class="text-base font-bold">{{title}}</h1>
         <Item1 v-for="(item, idx) in items"
             :key="idx"
@@ -17,8 +17,8 @@ const currency = useCurrency()
             <input class="inputs" v-model="value" type="number" name="" id="" :placeholder="`Value (${currency})`">
         </div>
         
-        <button class="w-full py-2 text-white bg-green-400 hover:bg-green-500 rounded flex justify-center items-center" @click="addItem">Add {{title}}</button>
-    </div>
+        <button type="submit" class="w-full py-2 text-white bg-green-400 hover:bg-green-500 rounded flex justify-center items-center">Add {{title}}</button>
+    </form>
 </template>
 
 <script lang="ts">
@@ -40,7 +40,8 @@ export default {
         };
     },
     methods: {
-        addItem(): void {
+        addItem(e: Event): void {
+            e.preventDefault();
             if (this.name == "" || this.value < 1)
                 return;
             this.items.push({
