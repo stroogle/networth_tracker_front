@@ -4,6 +4,7 @@ const {apiBase} = useRuntimeConfig().public
 
 <template>
     <div class="grid grid-cols-1 gap-y-4">
+        <p>This is a test</p>
         <p class="text-2xl font-bold">CREATE BEAUTIFUL BALANCE SHEETS FREE</p>
         <CurrencySelector />
         <ItemList title="Assets" :items="assets" />
