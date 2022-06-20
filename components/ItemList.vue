@@ -3,7 +3,7 @@ const currency = useCurrency()
 </script>
 
 <template>
-    <form @submit.prevent="addItem" class="grid grid-cols-1 gap-y-4">
+    <form @submit.prevent="addItem" class="grid grid-cols-1 gap-y-4 h-fit">
         <h1 class="text-base font-bold">{{title}}</h1>
         <Item1 v-for="(item, idx) in items"
             :key="idx"
