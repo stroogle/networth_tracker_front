@@ -75,8 +75,8 @@ export default {
             deep: true
         }
     },
-    beforeMount(){
-        
+    mounted(){
+        this.downloadReady = this.assets.length > 0;
     }
 }
 </script>
