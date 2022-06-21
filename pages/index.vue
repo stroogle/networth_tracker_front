@@ -58,7 +58,7 @@ export default {
             .finally(() => {
                 this.getting = false;
             })
-            
+
             if(!data.filename)
                 return;
 
@@ -69,17 +69,15 @@ export default {
     watch: {
         assets: {
             handler(){
-                this.assetTotal = this.assets.reduce((pV, cV) => pV + cV.value, 0)
-                if(this.assetTotal > 0)
-                    this.downloadReady = true;
-                else
-                    this.downloadReady = false;
+                this.assetTotal = this.assets.reduce((pV, cV) => pV + cV.value, 0);
+                this.downloadReady = this.assetTotal > 0 && this.liabilityTotal > 0;
             },
             deep: true
         },
         liabilities: {
             handler(){
-                this.liabilityTotal = this.liabilities.reduce((pV, cV) => pV + cV.value, 0)
+                this.liabilityTotal = this.liabilities.reduce((pV, cV) => pV + cV.value, 0);
+                this.downloadReady = this.assetTotal > 0 && this.liabilityTotal > 0;
             },
             deep: true
         }
