@@ -47,18 +47,19 @@ export default {
                 method: 'POST',
                 body
             })
-            .then(() => {
+            .then((data) => {
                 this.downloadMessage = "GENERATE PDF"
+                return data;
             })
-            .catch(e => {
+            .catch((e) => {
                 this.downloadMessage = "SOMETHING HAPPENED - TRY AGAIN"
                 return e.data
             })
             .finally(() => {
                 this.getting = false;
             })
-
-            if(!data.filname)
+            
+            if(!data.filename)
                 return;
 
 
