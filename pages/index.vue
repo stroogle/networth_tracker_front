@@ -1,15 +1,21 @@
 <script setup lang="ts">
 const {apiBase} = useRuntimeConfig().public
+useHead({
+    title: "Check My Net Worth"
+})
 </script>
 
 <template>
-    <div class="grid grid-cols-1 gap-y-4">
-        <p class="text-2xl font-bold">CREATE BEAUTIFUL BALANCE SHEETS FREE</p>
-        <CurrencySelector />
-        <ItemList title="Assets" :items="assets" />
-        <ItemList title="Liabailities" :items="liabilities" />
-        <Loader />
-        <button @click="downloadPdf" :disabled="!downloadReady" class="rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300 text-base">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4">
+        <p class="text-2xl font-bold md:col-span-2">CREATE BEAUTIFUL BALANCE SHEETS FREE</p>
+        <CurrencySelector class="md:col-span-2" />
+        <ItemList class="col-span-1" title="Assets" :items="assets" />
+        <ItemList class="col-span-1" title="Liabailities" :items="liabilities" />
+        <button
+            @click="downloadPdf"
+            :disabled="!downloadReady"
+            class="col-span-1 md:col-span-2 rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300"
+        >
             <span v-if="!getting">{{downloadMessage}}</span>
             <Loader class="" v-else />
         </button>
@@ -77,8 +83,8 @@ export default {
             deep: true
         }
     },
-    beforeMount(){
-        
+    mounted(){
+        this.downloadReady = this.assets.length > 0;
     }
 }
 </script>
