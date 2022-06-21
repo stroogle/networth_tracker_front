@@ -8,7 +8,11 @@ const {apiBase} = useRuntimeConfig().public
         <CurrencySelector />
         <ItemList title="Assets" :items="assets" />
         <ItemList title="Liabailities" :items="liabilities" />
-        <button @click="downloadPdf" :disabled="!downloadReady" class="rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300">{{downloadMessage}}</button>
+        <Loader />
+        <button @click="downloadPdf" :disabled="!downloadReady" class="rounded w-full bg-blue-400 click:bg-blue-500 text-white py-2 disabled:bg-gray-300 text-base">
+            <span v-if="!getting">{{downloadMessage}}</span>
+            <Loader class="" v-else />
+        </button>
     </div>
 </template>
 
@@ -21,12 +25,13 @@ export default {
             assetTotal: 0,
             liabilityTotal: 0,
             downloadReady: false,
-            downloadMessage: "GENERATE PDF"
+            downloadMessage: "GENERATE PDF",
+            getting: false,
         }
     },
     methods: {
         async downloadPdf(){
-            this.downloadMessage = "Loading..."
+            this.getting = true;
             const body = {
                 assets: this.assets,
                 liabilities: this.liabilities
@@ -36,9 +41,15 @@ export default {
                 method: 'POST',
                 body
             })
-            .catch(e => e.data)
-            .finally(() => {
+            .then(() => {
                 this.downloadMessage = "GENERATE PDF"
+            })
+            .catch(e => {
+                this.downloadMessage = "SOMETHING HAPPENED - TRY AGAIN"
+                return e.data
+            })
+            .finally(() => {
+                this.getting = false;
             })
 
             if(data.error)
