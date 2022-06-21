@@ -58,7 +58,7 @@ export default {
                 this.getting = false;
             })
 
-            if(data.error)
+            if(!data.filname)
                 return;
 
 
