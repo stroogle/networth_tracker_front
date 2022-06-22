@@ -3,6 +3,7 @@ const {apiBase} = useRuntimeConfig().public
 useHead({
     title: "Check My Net Worth"
 })
+const currency = useCurrency();
 </script>
 
 <template>
@@ -40,7 +41,8 @@ export default {
             this.getting = true;
             const body = {
                 assets: this.assets,
-                liabilities: this.liabilities
+                liabilities: this.liabilities,
+                currencySymbol: this.currency
             }
 
             const data: any = await $fetch(`${this.apiBase}/pdf/create`, {
