@@ -13,7 +13,7 @@ const currency = useCurrency()
             :idx="idx"
         />
         <div class="grid grid-cols-2 gap-x-4">
-            <input class="inputs" v-model="name" type="text" placeholder="Label"/>
+            <input ref="nameinput" class="inputs" v-model="name" type="text" placeholder="Label"/>
             <input class="inputs" v-model="value" type="number" name="" id="" :placeholder="`Value (${currency})`">
         </div>
         
@@ -50,6 +50,7 @@ export default {
             });
             this.name = "";
             this.value = null;
+            this.$refs.nameinput.focus();
         },
         removeItem(idx: number): void {
             this.items.splice(idx, 1);
