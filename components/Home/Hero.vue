@@ -7,8 +7,12 @@
             <HomeBreakLine />
             <p class="text-base text-white">A free tool to help you generate beautiful balance sheets that are exported as pdf documents.</p>
             <div class="flex gap-x-4">
-                <Button type="primary">Get Started</Button>
-                <Button type="secondary">About Us</Button>
+                <a href="#tool">
+                    <Button type="primary">Get Started</Button>
+                </a>
+                <a href="#about">
+                    <Button type="secondary">About Us</Button>
+                </a>
             </div>
         </div>
     </div>

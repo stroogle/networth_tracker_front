@@ -1,5 +1,5 @@
 <template>
-    <div class="toolContainer">
+    <div id="tool" class="toolContainer">
         <div class="leftSide">
             <p class="text-2xl text-green-400 font-bold">Tool</p>
             <p class="text-black text-5xl">How it Works</p>

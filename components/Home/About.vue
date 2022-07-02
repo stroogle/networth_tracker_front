@@ -1,5 +1,5 @@
 <template>
-    <div class="aboutContainer">
+    <div id="about" class="aboutContainer">
         <div class="leftContainer">
             <p class="text-2xl text-green-400 font-bold">About Us</p>
             <p class="text-black text-5xl">Find Your Net Worth</p>
@@ -12,7 +12,9 @@
             <p>
                 Donec porttitor turpis eu mi tempus facilisis. Maecenas id ullamcorper elit, quis tempus enim. In dignissim dolor in accumsan tincidunt. Donec vel diam vitae risus elementum congue. Cras varius, enim vitae condimentum mattis, erat lacus.
             </p>
-            <Button type="primary" class="w-full text-center lg:w-fit">Donate Now</Button>
+            <NuxtLink target="_blank" to="https://www.buymeacoffee.com/colm">
+                <Button type="primary" class="w-full text-center lg:w-fit">Donate Now</Button>
+            </NuxtLink>
         </div>
     </div>
 </template>
