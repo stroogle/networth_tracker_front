@@ -13,7 +13,7 @@
                 Donec porttitor turpis eu mi tempus facilisis. Maecenas id ullamcorper elit, quis tempus enim. In dignissim dolor in accumsan tincidunt. Donec vel diam vitae risus elementum congue. Cras varius, enim vitae condimentum mattis, erat lacus.
             </p>
             <NuxtLink target="_blank" to="https://www.buymeacoffee.com/colm">
-                <Button type="primary" class="w-full text-center lg:w-fit">Donate Now</Button>
+                <Button type="primary" class="w-full text-center lg:w-fit">Support Here</Button>
             </NuxtLink>
         </section>
     </article>
