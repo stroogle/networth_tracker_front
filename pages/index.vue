@@ -9,7 +9,7 @@
         <Meta property="og:title" content="Find My Net Worth!" />
         <Meta property="og:description" content="Need help making a balance sheet or figuring out your net position? This free and easy tool to creates reports based on your finance for you." />
         <Meta property="og:image" content="https://findmynetworth.com/heroImage.jpeg" />
-        <Meta property="twitter:cart" content="website" />
+        <Meta property="twitter:card" content="summary" />
     </Head>
     <main class="mainContainer">
         <HomeHero />
