@@ -1,7 +1,7 @@
 <template>
-    <div class="footerContainer">
-        This is a free tool I maintain as a hobby. If you’d like to support the service please consider donating <a target="_blank" href="https://www.buymeacoffee.com/colm" class="text-blue-400">here</a>
-    </div>
+    <footer class="footerContainer">
+        This is a free tool I maintain as a hobby. If you’d like to support the service please consider supporting <a target="_blank" href="https://www.buymeacoffee.com/colm" class="text-blue-400">here</a>
+    </footer>
 </template>
 
 <script setup>

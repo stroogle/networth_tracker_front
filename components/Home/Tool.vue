@@ -1,14 +1,14 @@
 <template>
-    <div id="tool" class="toolContainer">
-        <div class="leftSide">
-            <p class="text-2xl text-green-400 font-bold">Tool</p>
-            <p class="text-black text-5xl">How it Works</p>
+    <section id="tool" class="toolContainer">
+        <article class="leftSide">
+            <h2 class="text-2xl text-green-400 font-bold">Tool</h2>
+            <h1 class="text-black text-5xl">How it Works</h1>
             <HomeBreakLine />
-        </div>
-        <div class="rightSide">
+        </article>
+        <section class="rightSide">
             <HomeToolComp />
-        </div>
-    </div>
+        </section>
+    </section>
 </template>
 
 <script lang="ts">

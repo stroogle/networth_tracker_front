@@ -1,8 +1,5 @@
 <script setup lang="ts">
 const {apiBase} = useRuntimeConfig().public
-useHead({
-    title: "Check My Net Worth"
-})
 const currency = useCurrency();
 </script>
 
@@ -10,7 +7,7 @@ const currency = useCurrency();
     <div class="flex flex-col gap-y-4">
         <CurrencySelector class="" />
         <ItemList title="Assets" :items="assets" />
-        <ItemList title="Liabailities" :items="liabilities" />
+        <ItemList title="Liabilities" :items="liabilities" />
         <button
             @click="downloadPdf"
             :disabled="!downloadReady"

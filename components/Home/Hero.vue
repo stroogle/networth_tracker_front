@@ -1,21 +1,21 @@
 <template>
-    <div class="heroContainer">
+    <header class="heroContainer">
         <div class="overlay"></div>
-        <div class="heroMessage">
-            <p class="text-green-400 text-2xl">Find Your Net Worth</p>
-            <p class="text-5xl text-white">Generate a Balance Sheet.</p>
+        <article class="heroMessage">
+            <h2 class="text-green-400 text-2xl">Find Your Net Worth</h2>
+            <h1 class="text-5xl text-white">Generate a Balance Sheet.</h1>
             <HomeBreakLine />
             <p class="text-base text-white">A free tool to help you generate beautiful balance sheets that are exported as pdf documents.</p>
-            <div class="flex gap-x-4">
+            <nav class="flex gap-x-4">
                 <a href="#tool">
                     <Button type="primary">Get Started</Button>
                 </a>
                 <a href="#about">
                     <Button type="secondary">About Us</Button>
                 </a>
-            </div>
-        </div>
-    </div>
+            </nav>
+        </article>
+    </header>
 </template>
 
 <script lang="ts">
