@@ -17,6 +17,10 @@ export default defineNuxtConfig({
             },
         },
     },
+    modules: ['@nuxtjs/sitemap'],
+    sitemap: {
+        path: '/sitemap.xml'
+    },
     css: ["~/assets/css/tailwind.css"],
     vue: {
         config: {
