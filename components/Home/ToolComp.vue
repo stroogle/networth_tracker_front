@@ -32,6 +32,9 @@ export default {
             getting: false,
         }
     },
+    props: {
+        advanced: Boolean
+    },
     methods: {
         async downloadPdf(){
             this.getting = true;
