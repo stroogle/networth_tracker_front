@@ -6,8 +6,8 @@ const currency = useCurrency();
 <template>
     <div class="flex flex-col gap-y-4">
         <CurrencySelector class="" />
-        <ItemList title="Assets" :items="assets" />
-        <ItemList title="Liabilities" :items="liabilities" />
+        <ItemList :advanced="advanced" title="Assets" :items="assets" />
+        <ItemList :advanced="advanced" title="Liabilities" :items="liabilities" />
         <button
             @click="downloadPdf"
             :disabled="!downloadReady"
@@ -81,6 +81,12 @@ export default {
                 this.downloadReady = this.assetTotal > 0 && this.liabilityTotal > 0;
             },
             deep: true
+        },
+        advanced: {
+            handler(){
+                this.assets = [];
+                this.liabilities = [];
+            }
         }
     },
     mounted(){

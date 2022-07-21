@@ -1,5 +1,5 @@
 <template>
-    <label>
+    <label class="cursor-pointer">
         <input :value="modelValue" @input="toggle" type="checkbox" name="switch" class="hidden">
         <div :class="`w-9 p-0.5 rounded-full transition-all ease-in duration-100 ${isOn ? on : off}`">
             <div :class="`h-4 w-4 bg-white rounded-full transition-all ease-out duration-150 relative ${isOn ? onCircle : offCircle}`"></div>
