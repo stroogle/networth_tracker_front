@@ -30,6 +30,7 @@ export default {
             downloadReady: false,
             downloadMessage: "GENERATE PDF",
             getting: false,
+            advancedUrl: this.advanced ? "-advanced" : ""
         }
     },
     props: {
@@ -44,7 +45,7 @@ export default {
                 currencySymbol: this.currency
             }
 
-            const data: any = await $fetch(`${this.apiBase}/pdf/create`, {
+            const data: any = await $fetch(`${this.apiBase}/pdf/create${this.advancedUrl}`, {
                 method: 'POST',
                 body
             })
