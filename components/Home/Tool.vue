@@ -6,7 +6,7 @@
             <HomeBreakLine />
             <div class="flex gap-x-4 items-center">
                 <Toggle1 v-model="isAdvanced" />
-                <p class="text-base text-black">Advanced</p>
+                <p class="text-base text-black">Advanced?</p>
             </div>
         </article>
         <section class="rightSide">
